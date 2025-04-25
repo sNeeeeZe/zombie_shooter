@@ -1,0 +1,35 @@
+[gd_scene load_steps=8 format=3 uid="uid://ctt0kmimgrmcq"]
+
+[ext_resource type="Script" uid="uid://dni63icxyaktk" path="res://assets/Zombie Apocalypse Tileset/main.gd" id="1_0tmj4"]
+[ext_resource type="PackedScene" uid="uid://4wt2quc013cs" path="res://assets/Zombie Apocalypse Tileset/world.tscn" id="1_fn61g"]
+[ext_resource type="PackedScene" uid="uid://csuhiepm2s7gf" path="res://assets/Zombie Apocalypse Tileset/player.tscn" id="2_wbu5n"]
+[ext_resource type="PackedScene" uid="uid://le6ctlovkyr" path="res://assets/Zombie Apocalypse Tileset/zombie.tscn" id="3_ncssy"]
+[ext_resource type="PackedScene" uid="uid://bddq2aeltdtos" path="res://assets/Zombie Apocalypse Tileset/enemyspawner.tscn" id="4_0tmj4"]
+[ext_resource type="Script" uid="uid://b0eeai4bfjc6o" path="res://assets/Zombie Apocalypse Tileset/bulletmanager.gd" id="4_mmv4p"]
+[ext_resource type="PackedScene" uid="uid://de0noq228teo7" path="res://assets/Zombie Apocalypse Tileset/bullet.tscn" id="5_um7dp"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_0tmj4")
+
+[node name="world" parent="." instance=ExtResource("1_fn61g")]
+layer_1/tile_data = PackedInt32Array(0, 1572864, 6, 1, 1638400, 6, 2, 1703936, 6, 3, 1769472, 6, 4, 1769472, 6, 5, 1835008, 6, 16, 2293760, 12, 12, 2424832, 11, 13, 2490368, 11, 14, 2555904, 13, 15, 2621440, 13, 11, 2359296, 10, 6, 2621440, 12, 10, 2293760, 10, 65536, 2555904, 10, 131072, 2555904, 11, 196608, 2359296, 12, 262144, 2359296, 13, 327680, 2686976, 12, 393216, 2686976, 13, 655360, 2555904, 10, 720896, 2555904, 11, 786432, 2555904, 10, 851968, 2555904, 11, 917504, 2359296, 12, 1048577, 2162688, 12, 1048576, 2097152, 12, 983040, 2359296, 13, 1048578, 2097152, 12, 1048579, 2162688, 12, 1048580, 2097152, 13, 1048581, 2162688, 13, 1048582, 2293760, 12, 1048586, 2424832, 13, 1048587, 2490368, 13, 655376, 2555904, 10, 720912, 2555904, 11, 786448, 2359296, 12, 851984, 2359296, 13, 917520, 2359296, 12, 983056, 2359296, 13, 1048592, 2293760, 12, 1048588, 2555904, 13, 1048589, 2621440, 13, 1048590, 2424832, 12, 1048591, 2490368, 12, 65552, 2359296, 12, 131088, 2359296, 13, 196624, 2359296, 12, 262160, 2359296, 13, 327696, 2686976, 12, 393232, 2686976, 13)
+
+[node name="player" parent="." instance=ExtResource("2_wbu5n")]
+position = Vector2(387, 410)
+
+[node name="bulletmanager" type="Node2D" parent="."]
+script = ExtResource("4_mmv4p")
+bullet_scene = ExtResource("5_um7dp")
+
+[node name="zombie" parent="." instance=ExtResource("3_ncssy")]
+position = Vector2(404, -54)
+
+[node name="enemyspawner" parent="." instance=ExtResource("4_0tmj4")]
+position = Vector2(-3, 3)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(340, 387)
+zoom = Vector2(0.5, 0.5)
+
+[connection signal="shoot" from="player" to="bulletmanager" method="_on_player_shoot"]
+[connection signal="hit_p" from="enemyspawner" to="." method="_on_enemyspawner_hit_p"]

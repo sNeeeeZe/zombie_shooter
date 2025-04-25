@@ -1,0 +1,102 @@
+[gd_scene load_steps=16 format=3 uid="uid://csuhiepm2s7gf"]
+
+[ext_resource type="Texture2D" uid="uid://yxx06ybtvdsv" path="res://assets/Zombie Apocalypse Tileset/Organized separated sprites/Player Character Walking Animation Frames/Zombie-Tileset---_0482_Capa-483.png" id="1_bq1nj"]
+[ext_resource type="Script" uid="uid://blxoe2t7h3ywt" path="res://assets/Zombie Apocalypse Tileset/player.gd" id="1_xwiiy"]
+[ext_resource type="Texture2D" uid="uid://4ol0g5bl6643" path="res://assets/Zombie Apocalypse Tileset/Organized separated sprites/Player Character Walking Animation Frames/Zombie-Tileset---_0479_Capa-480.png" id="2_8p7ew"]
+[ext_resource type="Texture2D" uid="uid://cxf4gjieslytu" path="res://assets/Zombie Apocalypse Tileset/Organized separated sprites/Player Character Walking Animation Frames/Zombie-Tileset---_0483_Capa-484.png" id="2_xwiiy"]
+[ext_resource type="Texture2D" uid="uid://8yrbrlm73v3y" path="res://assets/Zombie Apocalypse Tileset/Organized separated sprites/Player Character Walking Animation Frames/Zombie-Tileset---_0480_Capa-481.png" id="3_aux6f"]
+[ext_resource type="Texture2D" uid="uid://dkun2o2naryr" path="res://assets/Zombie Apocalypse Tileset/Organized separated sprites/Player Character Walking Animation Frames/Zombie-Tileset---_0484_Capa-485.png" id="3_qbgex"]
+[ext_resource type="Texture2D" uid="uid://ba32k1r0a8v78" path="res://assets/Zombie Apocalypse Tileset/Organized separated sprites/Player Character Walking Animation Frames/Zombie-Tileset---_0481_Capa-482.png" id="4_le6ch"]
+[ext_resource type="Texture2D" uid="uid://caqsy8hnfqvlb" path="res://assets/Zombie Apocalypse Tileset/Organized separated sprites/Player Character Walking Animation Frames/Zombie-Tileset---_0476_Capa-477.png" id="5_he6lc"]
+[ext_resource type="Texture2D" uid="uid://dq2q5qxfw3xjt" path="res://assets/Zombie Apocalypse Tileset/Organized separated sprites/Player Character Walking Animation Frames/Zombie-Tileset---_0477_Capa-478.png" id="6_eowhs"]
+[ext_resource type="Texture2D" uid="uid://0btfy6nkjgu2" path="res://assets/Zombie Apocalypse Tileset/Organized separated sprites/Player Character Walking Animation Frames/Zombie-Tileset---_0478_Capa-479.png" id="7_4q5hc"]
+[ext_resource type="Texture2D" uid="uid://bvycfgjg3d55t" path="res://assets/Zombie Apocalypse Tileset/Organized separated sprites/Player Character Walking Animation Frames/Zombie-Tileset---Left_idle.png" id="11_he6lc"]
+[ext_resource type="Texture2D" uid="uid://6wygmmesnnu1" path="res://assets/Zombie Apocalypse Tileset/Organized separated sprites/Player Character Walking Animation Frames/Zombie-Tileset---Left_walk1.png" id="12_eowhs"]
+[ext_resource type="Texture2D" uid="uid://d17hirysdx0a4" path="res://assets/Zombie Apocalypse Tileset/Organized separated sprites/Player Character Walking Animation Frames/Zombie-Tileset---Left_walk2.png" id="13_4q5hc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3cw4v"]
+size = Vector2(38, 60)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8p7ew"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_8p7ew")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_aux6f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_le6ch")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_8p7ew")
+}],
+"loop": true,
+"name": &"walk0",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_he6lc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_eowhs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_4q5hc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_he6lc")
+}],
+"loop": true,
+"name": &"walk1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_he6lc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_eowhs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_4q5hc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_he6lc")
+}],
+"loop": true,
+"name": &"walk2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_bq1nj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_xwiiy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_qbgex")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_bq1nj")
+}],
+"loop": true,
+"name": &"walk3",
+"speed": 5.0
+}]
+
+[node name="player" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 17
+script = ExtResource("1_xwiiy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_3cw4v")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(3.75, 3.75)
+sprite_frames = SubResource("SpriteFrames_8p7ew")
+animation = &"walk3"

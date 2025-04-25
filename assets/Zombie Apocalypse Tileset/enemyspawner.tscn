@@ -1,0 +1,47 @@
+[gd_scene load_steps=2 format=3 uid="uid://bddq2aeltdtos"]
+
+[ext_resource type="Script" uid="uid://obogb5ll88e2" path="res://assets/Zombie Apocalypse Tileset/enemyspawner.gd" id="1_j22kq"]
+
+[node name="enemyspawner" type="Node2D"]
+script = ExtResource("1_j22kq")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(378, -33)
+
+[node name="Marker2D2" type="Marker2D" parent="."]
+position = Vector2(434, -32)
+
+[node name="Marker2D3" type="Marker2D" parent="."]
+position = Vector2(-23, 428)
+
+[node name="Marker2D4" type="Marker2D" parent="."]
+position = Vector2(-26, 394)
+
+[node name="Marker2D5" type="Marker2D" parent="."]
+position = Vector2(-25, 466)
+
+[node name="Marker2D6" type="Marker2D" parent="."]
+position = Vector2(469, -30)
+
+[node name="Marker2D7" type="Marker2D" parent="."]
+position = Vector2(847, 418)
+
+[node name="Marker2D8" type="Marker2D" parent="."]
+position = Vector2(847, 383)
+
+[node name="Marker2D9" type="Marker2D" parent="."]
+position = Vector2(850, 459)
+
+[node name="Marker2D10" type="Marker2D" parent="."]
+position = Vector2(370, 850)
+
+[node name="Marker2D11" type="Marker2D" parent="."]
+position = Vector2(435, 854)
+
+[node name="Marker2D12" type="Marker2D" parent="."]
+position = Vector2(405, 852)
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
