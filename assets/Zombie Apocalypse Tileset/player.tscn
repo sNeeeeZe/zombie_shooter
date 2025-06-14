@@ -89,6 +89,7 @@ animations = [{
 }]
 
 [node name="player" type="CharacterBody2D"]
+z_index = 1
 collision_layer = 2
 collision_mask = 17
 script = ExtResource("1_xwiiy")
@@ -100,3 +101,17 @@ shape = SubResource("RectangleShape2D_3cw4v")
 scale = Vector2(3.75, 3.75)
 sprite_frames = SubResource("SpriteFrames_8p7ew")
 animation = &"walk3"
+frame_progress = 0.811144
+
+[node name="ShotTimer" type="Timer" parent="."]
+
+[node name="BoostTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[node name="FastFireTimer" type="Timer" parent="."]
+wait_time = 4.0
+
+[connection signal="timeout" from="ShotTimer" to="." method="_on_shot_timer_timeout"]
+[connection signal="timeout" from="BoostTimer" to="." method="_on_boost_timer_timeout"]
+[connection signal="timeout" from="FastFireTimer" to="." method="_on_fast_fire_timer_timeout"]

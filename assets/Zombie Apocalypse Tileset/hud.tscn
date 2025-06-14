@@ -1,0 +1,58 @@
+[gd_scene load_steps=4 format=3 uid="uid://ftf3h2wjtj52"]
+
+[ext_resource type="Texture2D" uid="uid://u8rv4ew5dgnn" path="res://assets/Zombie Apocalypse Tileset/Organized separated sprites/Pickable Items and Weapons/Zombie-Tileset---_0340_Capa-341.png" id="1_026r2"]
+[ext_resource type="Texture2D" uid="uid://o03iepp7i2ek" path="res://assets/Zombie Apocalypse Tileset/Organized separated sprites/Skinny Walking Zombie Animation/Zombie-Tileset---_0397_Capa-398.png" id="2_x76sk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oiu40"]
+bg_color = Color(0.110955, 0.152571, 0.123456, 1)
+border_width_top = 2
+border_color = Color(0.000113828, 0.000113828, 0.000113828, 1)
+
+[node name="Hud" type="CanvasLayer"]
+
+[node name="Panel" type="Panel" parent="."]
+offset_right = 816.0
+offset_bottom = 48.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_oiu40")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(37, 24)
+scale = Vector2(3, 3)
+texture = ExtResource("1_026r2")
+
+[node name="LivesLabel" type="Label" parent="."]
+offset_left = 66.0
+offset_top = 2.0
+offset_right = 110.0
+offset_bottom = 44.0
+theme_override_font_sizes/font_size = 30
+text = "x 3"
+horizontal_alignment = 1
+
+[node name="WaveLabel" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -62.5
+offset_top = 2.0
+offset_right = 62.5
+offset_bottom = 44.0
+grow_horizontal = 2
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 30
+text = "WAVE : 1"
+horizontal_alignment = 1
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(656, 23)
+scale = Vector2(2.9, 2.5625)
+texture = ExtResource("2_x76sk")
+
+[node name="EnemiesLabel" type="Label" parent="."]
+offset_left = 680.0
+offset_top = 4.0
+offset_right = 724.0
+offset_bottom = 46.0
+theme_override_font_sizes/font_size = 30
+text = "x 10"
+horizontal_alignment = 1

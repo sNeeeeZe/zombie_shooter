@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://bjkxvskjr4lhn"]
+
+[ext_resource type="Texture2D" uid="uid://ue1pnethpw8d" path="res://assets/Zombie Apocalypse Tileset/Organized separated sprites/Inventory interface/HEALTH_KIT_SLOT.png" id="1_hkah1"]
+[ext_resource type="Script" uid="uid://bn36vjqjehbc6" path="res://assets/Zombie Apocalypse Tileset/item.gd" id="1_ni4kb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ni4kb"]
+size = Vector2(32, 20)
+
+[node name="Item" type="Area2D"]
+collision_layer = 16
+collision_mask = 2
+script = ExtResource("1_ni4kb")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_hkah1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ni4kb")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
